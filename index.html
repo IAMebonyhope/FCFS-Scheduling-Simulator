@@ -20,6 +20,30 @@
 <body>
 <!--================Page 1=================-->
   
+    <!--================ simulation start modal start=================--> 
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--================ simulation start modal end=================-->
+
     <!--================ Hero sm Banner start =================-->      
     <section class="hero-banner mb-30px">
       <div class="container">
@@ -33,11 +57,30 @@
             <div class="hero-banner__content">
               <h1>First Come First Serve</h1>
               <p>A scheduling algorithm where the process which arrives first, gets executed first, or we can say that the process which requests the CPU first, gets the CPU allocated first.</p>
-              <a class="button bg" href="#">Start Simulation</a>
+              <button type="button" class="button bg" data-toggle="modal" data-target="#exampleModal">Open Modal</button>
             </div>
           </div>
         </div>
       </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!--================ Hero sm Banner end =================-->
 
@@ -56,11 +99,11 @@
 
 <!--================Page 1=================-->
 
-  <script src="vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="page1Vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="page1Vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="page1Vendors/owl-carousel/owl.carousel.min.js"></script>
   <script src="js/jquery.ajaxchimp.min.js"></script>
   <script src="js/mail-script.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/page1Main.js"></script>
 </body>
 </html>
