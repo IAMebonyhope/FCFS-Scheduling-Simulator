@@ -18,86 +18,218 @@
   <link rel="stylesheet" href="css/page1Style.css">
 </head>
 <body>
-<!--================Page 1=================-->
+
   
-    <!--================ simulation start modal start=================--> 
+<!--================ simulation start modal start=================--> 
     
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="exampleModalLabel">FCFS</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Enter number of processes:</label>
+                        <input type="number" class="form-control" id="noOfProcesses">
+                        <span id="noOfProcessesError" style="color:red"></span>
+                    </div>
+                    
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="button" style="border-color:#21146a;" data-dismiss="modal">Close</button>
+                <button type="button" class="button" style="background-color: #21146a; color: #fff;" id="btnPage1">Continue</button>
             </div>
             </div>
         </div>
     </div>
     
-    <!--================ simulation start modal end=================-->
+<!--================ simulation start modal end=================-->
 
-    <!--================ Hero sm Banner start =================-->      
-    <section class="hero-banner mb-30px">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7">
-            <div class="hero-banner__img">
-              <img class="img-fluid" src="img/banner/hero-banner.png" alt="">
+<!--================ add process modal start=================--> 
+    
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newProcess"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-          </div>
-          <div class="col-lg-5 pt-5">
-            <div class="hero-banner__content">
-              <h1>First Come First Serve</h1>
-              <p>A scheduling algorithm where the process which arrives first, gets executed first, or we can say that the process which requests the CPU first, gets the CPU allocated first.</p>
-              <button type="button" class="button bg" data-toggle="modal" data-target="#exampleModal">Open Modal</button>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Burst Time:</label>
+                        <input type="number" class="form-control" id="newBurstTime">
+                        <span id="newProcessError" style="color:red"></span>
+                    </div>
+                    
+                </form>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="button" style="border-color:#21146a;" data-dismiss="modal">Close</button>
+                <button type="button" class="button" style="background-color: #21146a; color: #fff;" id="btnNewProcess">Add</button>
+            </div>
             </div>
         </div>
-    </section>
-    <!--================ Hero sm Banner end =================-->
-
-    <!-- ================ start footer Area ================= -->
-    <footer class="footer-area section-gap">
-            <div class="container">
-                
-                <div class="footer-bottom row align-items-center text-center text-lg-left">
-                    <p class="footer-text m-0 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-            </div>
-    </footer>
-    <!-- ================ End footer Area ================= -->
+    </div>
+    
+<!--================ simulation start modal end=================-->
 
 <!--================Page 1=================-->
+
+    <div id="page1" style="display:none;">
+        <!--================ Hero sm Banner start =================-->      
+        <section class="hero-banner mb-30px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-banner__img">
+                    <img class="img-fluid" src="img/banner/hero-banner.png" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-5 pt-5">
+                    <div class="hero-banner__content">
+                    <h1>First Come First Serve</h1>
+                    <p>A scheduling algorithm where the process which arrives first, gets executed first, or we can say that the process which requests the CPU first, gets the CPU allocated first.</p>
+                    <button type="button" class="button bg" data-toggle="modal" data-target="#exampleModal">Start Simulation</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        </section>
+        <!--================ Hero sm Banner end =================-->
+
+        <!-- ================ start footer Area ================= -->
+        <footer class="footer-area section-gap">
+                <div class="container">
+                    
+                    <div class="footer-bottom row align-items-center text-center text-lg-left">
+                        <p class="footer-text m-0 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+        </footer>
+        <!-- ================ End footer Area ================= -->
+    </div>
+<!--================Page 1=================-->
+
+
+<!--================Page 2=================-->
+  
+    <div id="page2" style="display:none;">
+        <!--================ Hero sm Banner start =================-->      
+        <section class="hero-banner mb-30px">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center" style="color:#fff;">FCFS</h1>
+                    <p class="text-center" style="color:#fff;">Enter the burst time for each process</p>
+                </div>
+                <div class="col-md-12">
+                    <form>
+                        <table class="table table-light table-page2">
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">Process #</th>
+                                <th scope="col">Burst Time</th>
+                              </tr>
+                            </thead>
+                            <tbody id="processEntry">
+                                <p id="processEntryError" class="text-center" style="color:red;"></p>
+                              
+                            </tbody>
+
+                        </table>
+                        <button type="button" class="button lg" id="btnPage2">Continue</button>
+                    </form>
+                </div>
+            </div>
+          </div>
+          
+        </section>
+        <!--================ Hero sm Banner end =================-->
+    
+        <!-- ================ start footer Area ================= -->
+        <footer class="footer-area section-gap">
+                <div class="container">
+                    
+                    <div class="footer-bottom row align-items-center text-center text-lg-left">
+                        <p class="footer-text m-0 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+        </footer>
+        <!-- ================ End footer Area ================= -->
+    </div>
+    
+<!--================Page 2=================-->
+
+<!--================Page 3=================-->
+  
+    <div id="page3" style="display:none;">
+        <!--================ Hero sm Banner start =================-->      
+        <section class="hero-banner mb-30px">
+          <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-center" style="color:#fff;">FCFS</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!--Isaac insert your html code here-->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <table class="table table-light table-page3">
+                        <thead class="thead-light">
+                            <tr>
+                            <th scope="col">Process #</th>
+                            <th scope="col">Burst Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="processTable">
+                            
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h4 style="color:#fff;" id="averageTime"></h4>
+                    <button type="button" class="button lg" data-toggle="modal" data-target="#exampleModal2">Add Process</button>
+                </div>
+            </div>
+          </div>
+          
+        </section>
+        <!--================ Hero sm Banner end =================-->
+    
+        <!-- ================ start footer Area ================= -->
+        <footer class="footer-area section-gap">
+                <div class="container">
+                    
+                    <div class="footer-bottom row align-items-center text-center text-lg-left">
+                        <p class="footer-text m-0 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+        </footer>
+        <!-- ================ End footer Area ================= -->
+    </div>
+    
+<!--================Page 3=================-->
 
   <script src="page1Vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="page1Vendors/bootstrap/bootstrap.bundle.min.js"></script>
@@ -105,5 +237,27 @@
   <script src="js/jquery.ajaxchimp.min.js"></script>
   <script src="js/mail-script.js"></script>
   <script src="js/page1Main.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    $( document ).ready(function() {
+
+        $("#page1").fadeIn("slow");
+
+        $("#btnPage1").click(function(){
+            goToPage2();
+        });
+
+        $("#btnPage2").click(function(){
+            goToPage3();
+        });
+
+        $("#btnNewProcess").click(function(){
+            addNewProcess();
+        });
+
+    });
+
+
+  </script>
 </body>
 </html>
