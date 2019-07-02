@@ -70,11 +70,20 @@ function goToPage3(){
 }
 
 function createProcessTable(){
+    var total = 0;
+    var n = processBurstTimes.length;
+
+    for (i = 0; i < n; i++) { 
+        processBurstTimes[i].WaitingTime = total;
+        total += processBurstTimes[i].BurstTime;
+    }
+
     $("#processTable").html("");
     for (i = 0; i < processBurstTimes.length; i++) { 
         var row = `<tr>
                         <td>${processBurstTimes[i].ID}</td>
                         <td>${processBurstTimes[i].BurstTime}</td>
+                        <td>${processBurstTimes[i].WaitingTime}</td>
                     </tr>`;
         $("#processTable").append(row);
     }
@@ -85,7 +94,7 @@ function calculateAverageWaitingTime(){
     var n = processBurstTimes.length;
 
     for (i = 0; i < n; i++) { 
-        total += processBurstTimes[i].BurstTime;
+        total += processBurstTimes[i].WaitingTime;
     }
 
     var average =  (total / n).toFixed(2);
