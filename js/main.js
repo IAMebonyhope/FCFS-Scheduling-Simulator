@@ -1,8 +1,11 @@
 var processBurstTimes = [];
 var lastProcessID = 1;
+var color = ['red', 'yellow', 'white', 'black', 'green', 'orange', 'violet', 'grey'];
+var waitTime = [];
+var burstTimes;
+let playPause;
 
 function goToPage2(){
-    console.log($("#noOfProcesses").val());
 
     if(($("#noOfProcesses").val().length == 0)){
         $("#noOfProcessesError").text("please input a valid number");
@@ -35,11 +38,10 @@ function goToPage3(){
 
     processBurstTimes = [];
 
-    var burstTimes = $('input[name^=burstTimes]').map(function(idx, elem) {
+    burstTimes = $('input[name^=burstTimes]').map(function(idx, elem) {
         return $(elem).val();
     }).get();
 
-    console.log(burstTimes);
     
     for(burstTime of burstTimes){
         if(burstTime.length == 0){
@@ -58,7 +60,6 @@ function goToPage3(){
         lastProcessID++;
     }
 
-    console.log(processBurstTimes);
 
     $("#page2").hide();
     $("#page3").fadeIn("slow");
@@ -108,12 +109,55 @@ function getNewProcessID(){
 }
 
 function startAnimation(){
-    //isaac insert your js code here
-    processBurstTimes.shift();
+    var animeBox = $('.anime-box');
+    console.log(processBurstTimes)
+    processBurstTimes.forEach((process,pos)  => {
+        animeBox.append(`<div class = 'anime-boxes' id='proccess${pos}' style = 'background-color: ${color[pos]}'> Process${pos+1} </div>`)
+    });
+    let temp = 0;
+    for (let i = 0; i < processBurstTimes.length; i++){
+        waitTime.push(temp);
+        temp += processBurstTimes[i].BurstTime
+    }
+    waitTime[0] = 1;
+    playPause = anime({
+        targets: 'div.anime-boxes',
+        translateY: [
+            { value: 200, duration: 100},
+        ],
+        easing: 'linear',
+        rotate: {
+            value: '5turn',
+            easing: 'easeInOutSine',
+        },
+        duration: function(el, i, l) {
+            return processBurstTimes[i].BurstTime * 1100
+        },
+        delay: function(el,i,l) {
+            if(i !== 0){
+                return (waitTime[i] * 1100)
+            }
+            return 1000;
+        },
+        opacity: 0,
+        autoplay: false,
+        loop: true
+    });
+
+
+    $('.start-anime').click(() => {
+        playPause.play();
+    });
+    $('.pause-anime').click(() => {
+        playPause.pause();
+    });
+}
+
+function clearProcessDiv(){
+    $('#animations').empty();
 }
 
 function addNewProcess(){
-    console.log($("#newBurstTime").val());
 
     if(($("#newBurstTime").val().length == 0)){
         $("#newProcessError").text("please input a valid number");
@@ -133,9 +177,11 @@ function addNewProcess(){
     $('#exampleModal2').modal('hide');
 
     $("#page3").fadeIn("slow");
-
+    clearProcessDiv();
     createProcessTable();
     calculateAverageWaitingTime();
     getNewProcessID();
+    anime.remove(playPause);
     startAnimation();
+
 }
