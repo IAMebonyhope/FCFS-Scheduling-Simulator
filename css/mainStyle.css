@@ -16,5 +16,22 @@
     #page3 .hero-banner {
         padding: 50px 0 50px 0 !important;
     }
+
+    .anime-boxes {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        margin: 4px;
+        display: inline-block;
+        margin-bottom: 300px;
+        text-align: center;
+        line-height: 100px;
+    }
+    .anime-boxes:hover {
+        transform: 	translateX(250px);
+        transition: all 1.5s ease;
+        animation-delay: 100s;
+        transition-delay: 5s
+    }
 }
 
