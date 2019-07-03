@@ -141,7 +141,6 @@ function startAnimation(){
         },
         opacity: 0,
         autoplay: false,
-        loop: true
     });
 
 
